@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6750a4">
+  <meta name="description" content="A simple color mixer to explore colors, names, HEX and RGB values.">
+  <title>Color Mixture</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand-mark" aria-hidden="true">◉</div>
+      <div><h1>Color Mixture</h1><p>Mix colors. Discover something new.</p></div>
+    </header>
+
+    <section class="preview-card" aria-label="Mixed color preview">
+      <div id="colorPreview" class="color-preview"></div>
+      <div class="preview-info">
+        <div><span class="eyebrow">COLOR NAME</span><h2 id="colorName">Purple</h2></div>
+        <div class="hex-row"><span id="hexValue">#800080</span><button id="copyHex" class="small-button" type="button">Copy HEX</button></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><div><span class="eyebrow">MAKE A COLOR</span><h2>Mix two colors</h2></div><button id="randomMix" class="text-button" type="button">↻ Random</button></div>
+      <div class="mix-grid">
+        <label class="color-control"><span>Color 1</span><div class="picker-row"><input id="colorOne" type="color" value="#ff4d6d"><output id="colorOneHex">#FF4D6D</output></div></label>
+        <div class="plus" aria-hidden="true">+</div>
+        <label class="color-control"><span>Color 2</span><div class="picker-row"><input id="colorTwo" type="color" value="#4361ee"><output id="colorTwoHex">#4361EE</output></div></label>
+      </div>
+      <label class="range-label" for="mixAmount"><span>Mix balance</span><output id="mixPercent">50% / 50%</output></label>
+      <input id="mixAmount" class="range" type="range" min="0" max="100" value="50">
+      <div class="range-ends"><span>Color 1</span><span>Color 2</span></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><div><span class="eyebrow">COLOR VALUES</span><h2>Fine tune</h2></div></div>
+      <label class="hex-input-label" for="hexInput">Enter a HEX code</label>
+      <div class="hex-entry"><input id="hexInput" type="text" value="#800080" maxlength="7" spellcheck="false" aria-describedby="hexError"><button id="applyHex" type="button">Apply</button></div>
+      <p id="hexError" class="error" role="status"></p>
+      <div class="rgb-grid">
+        <label>Red <output id="redValue">128</output><input id="redRange" type="range" min="0" max="255" value="128"></label>
+        <label>Green <output id="greenValue">0</output><input id="greenRange" type="range" min="0" max="255" value="0"></label>
+        <label>Blue <output id="blueValue">128</output><input id="blueRange" type="range" min="0" max="255" value="128"></label>
+      </div>
+      <p id="rgbValue" class="rgb-value">RGB (128, 0, 128)</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><div><span class="eyebrow">QUICK START</span><h2>Popular colors</h2></div></div>
+      <div class="swatches" id="presets">
+        <button class="swatch" data-color="#EF476F" style="--swatch:#EF476F" aria-label="Pink"></button>
+        <button class="swatch" data-color="#FFD166" style="--swatch:#FFD166" aria-label="Yellow"></button>
+        <button class="swatch" data-color="#06D6A0" style="--swatch:#06D6A0" aria-label="Green"></button>
+        <button class="swatch" data-color="#118AB2" style="--swatch:#118AB2" aria-label="Blue"></button>
+        <button class="swatch" data-color="#073B4C" style="--swatch:#073B4C" aria-label="Dark teal"></button>
+        <button class="swatch" data-color="#8338EC" style="--swatch:#8338EC" aria-label="Violet"></button>
+        <button class="swatch" data-color="#FF7F11" style="--swatch:#FF7F11" aria-label="Orange"></button>
+        <button class="swatch" data-color="#FFFFFF" style="--swatch:#FFFFFF" aria-label="White"></button>
+      </div>
+    </section>
+    <footer>Color Mixture · Made for experimenting with colors</footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
